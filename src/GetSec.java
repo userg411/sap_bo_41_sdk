@@ -26,9 +26,9 @@ import org.apache.poi.ss.usermodel.CellStyle;
 
 public class GetSec{ 
    // Set the following three variables with logon info the the CMS. 
-    public static final String strUser = "zadm-nabiyevs"; 
-    public static final String strCMS = "kzatapp0202"; 
-    public static final String strPwd = "Ab123321"; 
+    public static final String strUser = ""; 
+    public static final String strCMS = ""; 
+    public static final String strPwd = ""; 
     
    // Set this to true to display all advanced rights; false will just display a count of assigned rights if the access level is "advanced" 
     public static Boolean showAdvancedDetail = false; 
@@ -67,13 +67,10 @@ public class GetSec{
         boldStyle.setFont(font);//set it to bold
         
         
-        traverseFolders(6834, infoStore,"");
-        //IInfoObject infoObject = (IInfoObject)infoStore.query("Select SI_ID From CI_INFOOBJECTS where si_id=105736").get(0);
-        //System.out.println(infoObject.getKind());
-        //traverseUniverses(4, infoStore, "");
-        //traverseConnections(4, infoStore, "");
+        traverseFolders(id, infoStore,"");
+       
         
-        FileOutputStream out = new FileOutputStream(new File("C:/Users/nk91008743/Desktop/new.xls"));
+        FileOutputStream out = new FileOutputStream(new File(""));
         workbook.write(out);
         out.close();
         System.out.println("Excel written successfully..");
@@ -211,10 +208,7 @@ public class GetSec{
             cell1.setCellValue(effectivePrincipal.getName() + " has rights: " + rights );
             IEffectiveRights effectiveRights = effectivePrincipal.getRights();
             Iterator rightIT = effectiveRights.iterator();
-            /*while (rightIT.hasNext()){
-                IEffectiveRight effectiveRight = (IEffectiveRight)rightIT.next();
-                System.out.print(effectiveRight.get.getTitle()+"; ");
-            }*/
+            
         System.out.println();
         }
     }
